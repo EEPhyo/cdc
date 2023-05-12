@@ -1,6 +1,8 @@
 package com.ai.model;
 
-public class Transition {
+import java.io.Serializable;
+
+public class Transition implements Serializable{
 public int getId() {
         return id;
     }
