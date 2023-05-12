@@ -1,6 +1,8 @@
 package com.ai.model;
 
-public class Role {
+import java.io.Serializable;
+
+public class Role implements Serializable{
     public int getId() {
         return id;
     }
