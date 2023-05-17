@@ -2,20 +2,71 @@ package com.ai.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
+
+@Entity
+@Table(name="user")
 public class User implements Serializable{
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@Column
 	private String name;
+	
+	@Email(message="Enter valid Email Id.")
+	@Column(unique = true)
 	private String email;
+	
+	
+	@Column(name="password", length=10)
 	private String password;
+	
+	@Column(name="phone_number")
+	@NotNull
+	@NotBlank(message="Please enter your phone number")
 	private String phone_number;
+	 
+	@Column
 	private String address;
+	
+	@Column
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String created_date;
+	
+	@Column
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String updated_date;
+	
+	 @Column
 	private String created_user;
+	 
+	 @Column
 	private String updated_user;
+	 
+	 @Column
 	private boolean enabled;
+	
+	@Column
 	private boolean locked;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name="role_id",nullable = false)
+	private Role role;
 	
 	public User() {}
 	public int getId() {
