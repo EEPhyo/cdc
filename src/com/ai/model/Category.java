@@ -1,8 +1,20 @@
 package com.ai.model;
 
-import java.io.Serializable;
 
-public class Category implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Category {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	
+	@Column(name="name")
+    private String name;
+
+    public Category(){}
     public int getId() {
         return id;
     }
@@ -15,7 +27,5 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    private int id;
-    private String name;
 
 }
