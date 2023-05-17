@@ -1,5 +1,6 @@
 package com.ai.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,4 +27,5 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
 }
