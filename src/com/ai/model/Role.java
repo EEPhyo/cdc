@@ -1,5 +1,6 @@
 package com.ai.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="role")
-public class Role {
+public class Role implements Serializable{
 	
 
 	@Id
