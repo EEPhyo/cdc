@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.ai.persistant.dto.CategoryDto;
 
-@Service("CategoryDao")
+@Service("categoryDao")
 public class CategoryDao {
     public static Connection con=null;
 	

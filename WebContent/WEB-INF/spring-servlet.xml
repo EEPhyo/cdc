@@ -25,12 +25,21 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		id="messageSource">
 		<property name="basename" value="messages" />
 	</bean>
-</beans>
-<bean id="CategoryDao" class="com.ai.persistant.dao.CategoryDao"></bean>
+
+<bean id="categoryDao" class="com.ai.persistant.dao.CategoryDao"></bean>
 <mvc:resources mapping="/resource/**" location="/WEB-INF/resource/" />
 <mvc:annotation-driven />
 	<bean class="org.springframework.context.support.ResourceBundleMessageSource"
 		id="messageSource">
 		<property name="basename" value="messages" />
 	</bean>
+	
+<bean id="productDao" class="com.ai.persistant.dao.ProductDao"></bean>
+<mvc:resources mapping="/resource/**" location="/WEB-INF/resource/" />
+<mvc:annotation-driven />
+	<bean class="org.springframework.context.support.ResourceBundleMessageSource"
+		id="messageSource">
+		<property name="basename" value="messages" />
+	</bean>	
+	
 </beans>
