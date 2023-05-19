@@ -20,14 +20,14 @@ public class CategoryDao {
 	
 	
 	//insert
-	public int insertData(CategoryDto user) {
+	public int insertData(CategoryDto category) {
 		int result =0;
-		String sql = "INSERT INTO user(id,name VALUES (?,?)";
+		String sql = "INSERT INTO category(id,name VALUES (?,?)";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,user.getId());
-			ps.setString(2,user.getName());
+			ps.setInt(1,category.getId());
+			ps.setString(2,category.getName());
 			result=ps.executeUpdate();			
 		}catch (SQLException e) {
 			System.out.println("Database error");
@@ -38,14 +38,14 @@ public class CategoryDao {
 	}
 	
 	//update
-	public int updateData(CategoryDto user) {
+	public int updateData(CategoryDto category) {
 		int result =0;
-		String sql = "UPDATE user SET name=? WHERE id=?";
+		String sql = "UPDATE category SET name=? WHERE id=?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
-			ps.setString(1,user.getName());
+			ps.setString(1,category.getName());
 			result=ps.executeUpdate();			
 		}catch (SQLException e) {
 			System.out.println("Database error");
@@ -55,13 +55,13 @@ public class CategoryDao {
 	}
 	
 	//delete
-	public int deleteData(CategoryDto user) {
+	public int deleteData(CategoryDto category) {
 		int result=0;
-		String sql = "DELETE FROM user where id=?";		
+		String sql = "DELETE FROM category where id=?";		
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,user.getId());
+			ps.setInt(1,category.getId());
 			result=ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Database error");
@@ -71,7 +71,7 @@ public class CategoryDao {
 	//select single book
 	public CategoryDto selectOne(CategoryDto category) {
 		CategoryDto res = new CategoryDto();
-		String sql = "SELECT * from user where id=?";
+		String sql = "SELECT * from category where id=?";
 		
 		PreparedStatement ps;
 		try {
@@ -90,7 +90,7 @@ public class CategoryDao {
 	//selectAll
 	public ArrayList<CategoryDto> selectAll() {
 		ArrayList<CategoryDto> list = new ArrayList();
-		String sql = "SELECT * FROM user";
+		String sql = "SELECT * FROM category";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
