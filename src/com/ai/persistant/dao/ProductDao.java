@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
+import com.ai.model.Product;
 import com.ai.persistant.dto.ProductDto;
 
 @Service("productDao")
@@ -130,6 +131,11 @@ public static Connection con=null;
 			System.out.println("Database error");
 		}
 		return list;
+	}
+
+	public void addProduct(Product product) {
+		// TODO Auto-generated method stub
+		
 	}
 		
 	}

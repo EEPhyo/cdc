@@ -11,21 +11,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ai.model.Product;
 import com.ai.persistant.dao.ProductDao;
+import com.ai.persistant.dto.ProductDto;
+import com.ai.service.ProductService;
 
 @Controller
 @RequestMapping("/api/products")
 public class ProductController {
-
-    private ProductDao productDao;
+	private ProductService productService;
 
     @Autowired
-    public ProductController(ProductDao productDao) {
-        this.productDao = productDao;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @PostMapping
     public ResponseEntity<String> addProduct(@RequestBody Product product) {
-        productDao.insertData(product);
+        productService.addProduct(product);
         return ResponseEntity.ok("Product added successfully");
     }
 }
+    
