@@ -17,9 +17,10 @@ public class ProductService {
 	        this.productDao = productDao;
 	    }
 
-	    public void insertData(ProductDto product) {
-	        // Perform any necessary validations or business logic before adding the product
-	        productDao.insertData(product);
-	    }
+
+		public void addProduct(Product product) {
+			// TODO Auto-generated method stub
+			 productDao.addProduct(product);
+		}
 	}
 
